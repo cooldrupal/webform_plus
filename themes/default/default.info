@@ -1,0 +1,6 @@
+name = Default
+description = 'default webform'
+
+stylesheets[all][] = css/test.css
+scripts[] = js/test.js
+scripts[] = js/test1.js

@@ -1,0 +1,15 @@
+﻿<?php
+
+/**
+ * @file
+ * Installation functions for webform_plus module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function webform_plus_uninstall() {
+  db_delete('variable')
+    ->condition('name', 'webform_plus_%', 'LIKE')
+    ->execute();
+}

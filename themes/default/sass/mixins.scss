@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+
+@mixin font-face($fontFamily, $fontpath) { 
+  font-family: $fontFamily;
+  src: url( $fontpath + '.eot');
+  src: url( $fontpath + '.eot?#iefix') format('embedded-opentype'),
+       url( $fontpath + '.woff') format('woff'),
+       url( $fontpath + '.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin box-sizing($box-sizing){
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+} 
+
+@mixin box-shadow($box-shadow){
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+@mixin border-radius($radius: 5px){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition-duration($time: 200ms){
+  -moz-transition-duration: $time;
+  -webkit-transition-duration: $time;
+  -ms-transition-duration: $time;
+  -o-transition-duration: $time;
+  transition-duration: $time; 
+}
+
+@mixin opacity($opacity: 0){
+  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=$opacity*100);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+
+@mixin transform($transform){
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin appearance($appearance: none){
+  -webkit-appearance: $appearance;
+  -moz-appearance: $appearance;
+  appearance: $appearance;
+}
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
+
+@mixin gradient($top, $bottom){
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, $top),
+    color-stop(1, $bottom)
+  );
+  background-image: -o-linear-gradient(bottom, $top 0%, $bottom 100%);
+  background-image: -moz-linear-gradient(bottom, $top 0%, $bottom 100%);
+  background-image: -webkit-linear-gradient(bottom, $top 0%, $bottom 100%);
+  background-image: -ms-linear-gradient(bottom, $top 0%, $bottom 100%);
+  background-image: linear-gradient(to bottom, $top 0%, $bottom 100%);
+}

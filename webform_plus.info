@@ -1,0 +1,8 @@
+name = Webform_plus
+description = 'Webform plus'
+package = Plus
+version = 1.3
+core = 7.x
+configure = admin/config/user-interface/webform_plus
+
+dependencies[] = webform

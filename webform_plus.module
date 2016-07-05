@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * Implements hook_permission().
+ */
+function webform_plus_permission() {
+  return array(
+    'use webform_plus' =>  array(
+      'title' => t('Use the Webform_plus module'),
+    ),
+    'administer webform_plus' =>  array(
+      'title' => t('Administer the Webform_plus module'),
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_menu().
+ */
+function webform_plus_menu() {
+  $items['admin/config/user-interface/webform_plus'] = array(
+    'title' => 'Webform plus',
+    'description' => 'Configure theme selection settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('webform_plus_admin_settings_form'),
+    'access arguments' => array('administer webform_plus'),
+    'file' => 'webform_plus.admin.inc',
+  );
+
+  return $items;
+}
+
+
+/**
+ * Implementation of hook_init().
+ */
+function webform_plus_init() {
+   if (!user_access('use webform_plus')) return; //no permissions
+
+   $module_path = drupal_get_path('module', 'webform_plus');
+   $curr_theme = variable_get('webform_plus_themes','default');
+
+
+   // Add js-library
+   if ( module_exists('form_placeholder') && variable_get('webform_plus_form_placeholder_touch',FALSE) == TRUE ){
+     drupal_add_js( $module_path .'/js/form_placeholder_touch.js', array('group' => JS_THEME) );
+   }
+
+   if ( variable_get('webform_plus_form_library',FALSE) == TRUE ) {
+     drupal_add_js( $module_path .'/js/jquery.mousewheel.js', array('group' => JS_THEME) );
+     drupal_add_js( $module_path .'/js/jquery.jscrollpane.min.js', array('group' => JS_THEME) );
+     drupal_add_js( $module_path .'/js/jquery.forms.js', array('group' => JS_THEME) );
+   }
+
+
+   // Add css and js from module
+   _webform_plus_add_theme_assets("$module_path/themes/$curr_theme", $curr_theme, "webform_plus");
+
+   // Add css and js from current drupal theme
+   _webform_plus_add_theme_assets(path_to_theme() . "/webform_plus", $curr_theme, "webform_plus_theme");
+
+  // Add inc-file from module
+  _webform_plus_add_inc_file("$module_path/themes/$curr_theme/$curr_theme.inc"); 
+
+  // Add inc-file from current drupal theme
+  _webform_plus_add_inc_file(path_to_theme() . "/webform_plus/$curr_theme.inc");
+
+}
+
+
+/**
+ * Add css and js from info file
+ */
+function _webform_plus_add_theme_assets($path, $mainfile, $basename) {
+
+   $curr_css = "$path/$mainfile.css";
+   if ( file_exists($curr_css) ) {
+        drupal_add_css($curr_css);
+   }
+
+   $curr_js = "$path/$mainfile.js";
+   if ( file_exists($curr_js) ) {
+        drupal_add_js($curr_js, array('group' => JS_THEME));
+   }
+
+
+   $info = drupal_parse_info_file("$path/$mainfile.info");
+   if ($info) {
+    if (!empty($info['stylesheets'])) {
+      foreach ($info['stylesheets'] as $media => $stylesheets) {
+        foreach ($stylesheets as $stylesheet) {
+          drupal_add_css("$path/$stylesheet", array('every_page' => TRUE, 'media' => $media, 'basename' => $basename));
+        }
+      }
+    }
+    if (!empty($info['scripts'])) {
+      foreach ($info['scripts'] as $script) {
+        drupal_add_js("$path/$script", array('every_page' => TRUE, 'group' => JS_THEME));
+      }
+    }
+   }
+
+}
+
+/**
+ * Add inc-file
+ */
+function _webform_plus_add_inc_file($inc_file) {
+  if (is_file($inc_file)) {
+     require_once $inc_file;
+     return TRUE;
+  }
+
+  return FALSE;
+}
+

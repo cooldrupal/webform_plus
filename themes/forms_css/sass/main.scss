@@ -1,0 +1,69 @@
+
+.forms_css {
+
+  .form-text,
+  textarea { height: 59px; border: 1px solid #dbdbdb; padding: 0 20px; max-width: 100%;
+
+    @include border-radius(3px);
+    @extend %border-box;
+  }
+  textarea { height: auto; padding-top: 15px; padding-bottom: 15px;}
+  .form-submit { font-size: 13px; width: 263px; height: 59px; margin-right: 8px; text-transform: uppercase; font-weight: normal;
+
+    @extend %button;
+    @extend %border-box;
+  }
+  .form-textarea-wrapper { display: block; width: 100%;
+    
+    .grippie { display: none;}
+  }
+  span.select { padding:0; position:relative; z-index:10; width: 100%; padding: 0;
+
+    .checked_option_wrap { padding: 0; line-height: 59px;
+
+      @extend .form-text;
+
+    }
+    .checked_option { height: 100%; width: 100%; padding: 0 20px; cursor: pointer; position: relative; overflow: hidden;
+
+      @extend %border-box;
+      @include border-radius(3px);
+
+      &:before { content: ""; position: absolute; top: 0; right: 0; width: 59px; height: 59px; background: $borderBlue;}
+      &:after { content: ""; position: absolute; top: 50%; right: 29px; width: 0; height: 0; border: 5px solid #fff; border-left-color: transparent; border-top-color: transparent; margin-top: -6px; margin-right: -6px;
+
+        @include transform(rotate(45deg));
+      }
+    }
+    //.checked_option:after { content: "."; visibility: hidden;}
+    .items { margin-top: -1px; padding:0; width:100%;
+
+      @include border-radius(3px);
+      @extend %border-box;
+
+    }
+    .items_inner { padding:12px 5px 5px; background:#ffffff; position:relative; border:1px solid #dbdbdb; max-height: 200px;
+
+      @include border-radius(3px); 
+
+    }
+    .option { min-height:14px; padding:4px 16px; cursor:pointer}
+    .option:hover { background: $borderBlue; color:#ffffff;}
+  }
+  .items_padding { padding:12px 0 !important; width: auto !important;}
+  .jspContainer { position:relative; overflow:hidden; display: block !important; max-width: 100%}
+  .jspContainer div { display: block !important;}
+  .jspTrack { width: 1px; background: #dbdbdb;}
+  .jspPane { position:relative; padding: 0 !important; min-width: 100%;
+
+    @extend %border-box;
+  }
+  .jspVerticalBar { position:absolute; top:0; right:4px}
+  .jspDrag { background:#dbdbdb; width:5px; cursor:pointer; position:relative; margin-left: -2px;
+
+    @include border-radius(3px);
+
+  }
+  .jspPane { margin-left:0 !important}
+
+}

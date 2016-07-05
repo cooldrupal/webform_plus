@@ -1,0 +1,185 @@
+/* CSS Document */
+/* Vars */
+/* Defaults */
+.form-submit {
+  -moz-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  -ms-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms; }
+
+.form-text, span.select .checked_option_wrap,
+textarea, .form-submit, span.select .checked_option, span.select .items, .jspPane {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.form-submit {
+  background: #6bb2e2;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 23px 13px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 1px;
+  display: inline-block;
+  border: 2px solid #6bb2e2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=$opacity*100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1; }
+  .form-submit:hover {
+    color: #6bb2e2;
+    background-color: #fff;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=$opacity*100);
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8; }
+  .form-submit:first-child {
+    margin-left: 0; }
+  .form-submit:last-child {
+    margin-right: 0; }
+
+.form-text, span.select .checked_option_wrap,
+textarea {
+  height: 59px;
+  border: 1px solid #dbdbdb;
+  padding: 0 20px;
+  max-width: 100%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+textarea {
+  height: auto;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.form-submit {
+  font-size: 13px;
+  width: 263px;
+  height: 59px;
+  margin-right: 8px;
+  text-transform: uppercase;
+  font-weight: normal; }
+
+.form-textarea-wrapper {
+  display: block;
+  width: 100%; }
+  .form-textarea-wrapper .grippie {
+    display: none; }
+
+span.select {
+  padding: 0;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 0; }
+  span.select .checked_option_wrap {
+    padding: 0;
+    line-height: 59px; }
+  span.select .checked_option {
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
+    span.select .checked_option:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 59px;
+      height: 59px;
+      background: #6bb2e2; }
+    span.select .checked_option:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 29px;
+      width: 0;
+      height: 0;
+      border: 5px solid #fff;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      margin-top: -6px;
+      margin-right: -6px;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg); }
+  span.select .items {
+    margin-top: -1px;
+    padding: 0;
+    width: 100%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
+  span.select .items_inner {
+    padding: 12px 5px 5px;
+    background: #ffffff;
+    position: relative;
+    border: 1px solid #dbdbdb;
+    max-height: 200px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
+  span.select .option {
+    min-height: 14px;
+    padding: 4px 16px;
+    cursor: pointer; }
+  span.select .option:hover {
+    background: #6bb2e2;
+    color: #ffffff; }
+
+.items_padding {
+  padding: 12px 0 !important;
+  width: auto !important; }
+
+.jspContainer {
+  position: relative;
+  overflow: hidden;
+  display: block !important;
+  max-width: 100%; }
+
+.jspContainer div {
+  display: block !important; }
+
+.jspTrack {
+  width: 1px;
+  background: #dbdbdb; }
+
+.jspPane {
+  position: relative;
+  padding: 0 !important;
+  min-width: 100%; }
+
+.jspVerticalBar {
+  position: absolute;
+  top: 0;
+  right: 4px; }
+
+.jspDrag {
+  background: #dbdbdb;
+  width: 5px;
+  cursor: pointer;
+  position: relative;
+  margin-left: -2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+.jspPane {
+  margin-left: 0 !important; }
+
+/*# sourceMappingURL=default.css.map */

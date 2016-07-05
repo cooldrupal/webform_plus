@@ -1,0 +1,46 @@
+  /* Vars */
+
+$colorMain:     #353535;
+$colorGray:     #676767;
+$colorDarkGray: #5a5a5a;
+$colorPink:     #f06666;
+$colorBlue:     #4485b1;
+
+$borderBlue:    #6bb2e2;
+
+
+
+
+  /* Defaults */
+
+%transition {
+  @include transition-duration();
+}
+
+%border-box {
+
+  @include box-sizing(border-box);
+}
+
+%def_ul { margin: 0; padding: 0;
+
+  li { margin: 0; padding: 0; list-style: none; list-style-image: none;}
+}
+
+%button { background: $borderBlue; font-size: 12px; font-weight: bold; padding: 12px 23px 13px; color: #fff; text-transform: uppercase; text-decoration: none; cursor: pointer;  margin: 0 1px; display: inline-block; border: 2px solid $borderBlue;
+
+  @include border-radius(2px);
+  @include opacity(1);
+  @extend %transition;
+  &:hover { color: $borderBlue; background-color: #fff;
+
+    @include opacity(.8);
+  }
+  &:first-child { margin-left: 0;}
+  &:last-child { margin-right: 0;}
+}
+
+%bdr5 {
+
+  @include border-radius(5px);
+}
