@@ -1,4 +1,4 @@
-(function ($) { //  
+(function ($) { //  test
 
   Drupal.behaviors.select = {
     attach : function(context, settings) {
