@@ -17,10 +17,10 @@
 
           if(!$(this).hasClass('items_padding')){
             var hidden = $(this).closest('[style=display: none;]');
-            console.log(hidden);
+            //console.log(hidden);
             hidden.show();
             $(this).parent().show();
-            $(this).jScrollPane({scrollbarWidth:4, showArrows:false, contentWidth: '0px'});
+            $(this).jScrollPane({scrollbarWidth:4, showArrows:false, contentWidth: '0px', mouseWheelSpeed: 30});
             $(this).addClass('items_padding');
             $(this).parent().hide();
             hidden.hide();
