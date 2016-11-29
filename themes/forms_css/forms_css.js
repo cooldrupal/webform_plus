@@ -1,7 +1,7 @@
 (function ($) { //  test
 
   Drupal.behaviors.select = {
-    attach : function(context, settings) {
+    attach : function(с, settings) {
 
       $('select', context).forms();
 
@@ -17,7 +17,6 @@
 
           if(!$(this).hasClass('items_padding')){
             var hidden = $(this).closest('[style=display: none;]');
-            //console.log(hidden);
             hidden.show();
             $(this).parent().show();
             $(this).jScrollPane({scrollbarWidth:4, showArrows:false, contentWidth: '0px', mouseWheelSpeed: 30});
@@ -28,6 +27,12 @@
                 
         });
       });
+
+      $('.form-radios .multichoice_row', context).click(function(){
+
+        $(this).find('[type="radio"]:checked').trigger('change');
+      });
+
     }
   };
 })(jQuery);

@@ -32,10 +32,8 @@ jQuery.fn.forms = function(options){ // custom form elements
 			el.name = el.attr('name').replace(/[\[\]]/g, '');
 			el.replace = (el.type != 'file') ? '<span class="'+el.type+' el-name-'+el.name+'" lng=""></span>' : '<span class="'+el.type+'"><span class="input"></span><span class="button" lng="">'+opt.file_bt+'</span></span>';
 			el.before(el.replace);
-			//el.hide();
 			switch (el.type){
 				case 'checkbox':
-					//alert(el.attr('checked'))
 					if (el.is(':checked')) {
 						el.prev().addClass('check_'+el.type);
 					}
@@ -53,6 +51,7 @@ jQuery.fn.forms = function(options){ // custom form elements
 							else {
 								el.prop('checked', false);
 							}
+							el.trigger('change');
 	            		}
 					});	
 					if(opt.ie) {
