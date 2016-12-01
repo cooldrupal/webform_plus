@@ -1,6 +1,6 @@
 /* 
 	Created by Vladimir Khodakov (web-interface.info team)
-	version 1.4.3
+	version 1.4.4
  */
 
 /*Browser detection patch*/
@@ -76,6 +76,7 @@ jQuery.fn.forms = function(options){ // custom form elements
 							jQuery('.el-name-'+el.name).removeClass('check_'+el.type);
 							el.attr('checked', true);
               				el.trigger('change');
+              				el.trigger('click');
 							jQuery(this).addClass('check_'+el.type);
 						}
 					});	
