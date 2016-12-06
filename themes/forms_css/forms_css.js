@@ -1,7 +1,7 @@
 (function ($) { //  test
 
   Drupal.behaviors.select = {
-    attach : function(с, settings) {
+    attach : function(context, settings) {
 
       $('select', context).forms();
 
